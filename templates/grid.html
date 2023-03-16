@@ -1,1 +1,27 @@
-<h1>Student List Grid</h1>>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>designation</th>
+            <th>age</th>
+        </tr>
+        {% for employee in employees %}
+        <tr>
+            <td>{{ employee.id}}</td>
+            <td>{{ employee.name}}</td>
+            <td>{{ employee.designation}}</td>
+            <td>{{ employee.age}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
