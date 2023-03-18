@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add</title>
+    <style>
+        .text-danger{
+            color: red;
+        }
+        .text-success{
+            color:green;
+        }
+    </style>
+</head>
+<body>
+    <a href="{% url 'grid' %}" style="font-size: large;">Grid</a>
+    <a href="{% url 'add' %}" style="font-size: large;">Add</a>
+    <br>
+    <br>
+    <form action="/add" method="post">
+        {% csrf_token %}
+        {% if messages %} 
+        {% for message in messages %}
+          <p class="alert {% if message.tags == 'error' %} text-danger {% else %} text-success {% endif %}">{{message}}</p>
+        {% endfor %} 
+      {% endif %} 
+        <table>
+            <tr>
+                <th colspan="2"><h3>Add Employee</h3></th>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <th><input type="text" name="name" /></th>
+            </tr>
+            <tr>
+                <th>Designation</th>
+                <th><input type="text" name="designation" /></th>
+            </tr>
+            <tr>
+                <th>Age</th>
+                <th><input type="number" name="age" /></th>
+            </tr>
+            <tr>
+                <th>Gender</th>
+                <th><select name="gender">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select></th>
+            </tr>
+            <tr>
+                <th colspan="2"><button type="submit">Save Employee</button></th>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

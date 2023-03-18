@@ -5,5 +5,4 @@ class Employees(models.Model):
     name = models.CharField(max_length=100)
     designation = models.CharField(max_length=200)
     age = models.IntegerField()
-    gender = models.BooleanField()
-    
+    gender = models.CharField(max_length=100)
